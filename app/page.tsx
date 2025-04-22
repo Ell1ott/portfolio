@@ -214,18 +214,18 @@ export default function Home() {
                 </TabsList>
               </div>
               <TabsContent value="all" className="mt-6">
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid gap-8 grid-cols-2">
                   <ProjectCard
-                    title="Project Alpha"
-                    description="A revolutionary platform for connecting creators and businesses."
-                    imageSrc="/placeholder.svg?height=200&width=300"
+                    title="Akademia"
+                    description="An all-in-one solution for all of the schools' digital needs."
+                    imageSrc="/akademia.webp"
                     tags={["React", "Node.js", "MongoDB"]}
                     link="#"
                   />
                   <ProjectCard
-                    title="Mobile Companion"
-                    description="Cross-platform mobile application with real-time synchronization."
-                    imageSrc="/placeholder.svg?height=200&width=300"
+                    title="Life tracker"
+                    description="Simple, clean and modern habit tracker designed to help you build and maintain good habits"
+                    imageSrc="/life-tracker.png"
                     tags={["React Native", "Firebase", "Redux"]}
                     link="#"
                   />

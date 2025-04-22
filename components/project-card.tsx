@@ -15,19 +15,19 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, imageSrc, tags, link }: ProjectCardProps) {
   return (
-    <Card className="overflow-hidden">
-      <div className="relative aspect-video overflow-hidden">
+    <div className="text-start cursor-pointer  group mb-2 hover:-translate-y-1 transition-transform duration-300 ease-out" >
+      <div className="relative aspect-[2] mb-4">
         <Image
           src={imageSrc || "/placeholder.svg"}
           alt={title}
           fill
-          className="object-cover transition-transform hover:scale-105"
+          className="object-cover transition-all duration-200 group-hover:border-black/30 rounded-xl border"
         />
       </div>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
+      
+        <CardTitle className="mb-1">{title}</CardTitle>
+      
+     
         <p className="text-muted-foreground">{description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
@@ -36,17 +36,6 @@ export function ProjectCard({ title, description, imageSrc, tags, link }: Projec
             </Badge>
           ))}
         </div>
-      </CardContent>
-      <CardFooter>
-        <Link
-          href={link}
-          className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View Project <ExternalLink className="h-4 w-4" />
-        </Link>
-      </CardFooter>
-    </Card>
+    </div>
   )
 }
