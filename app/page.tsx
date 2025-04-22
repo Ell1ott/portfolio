@@ -40,7 +40,7 @@ export default function Home() {
                     <span className="text-primary">Elliott</span>
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  I'm a 17-year-old fullstack developer who loves using the modern tech to solve our everyday problems. 
+                  I'm a 17-year-old fullstack developer who loves using modern tech to solve our everyday problems. 
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row z-20">
@@ -219,34 +219,36 @@ export default function Home() {
                     title="Akademia"
                     description="An all-in-one solution for all of the schools' digital needs."
                     imageSrc="/akademia.webp"
-                    tags={["React", "Node.js", "MongoDB"]}
+                    tags={["Svelte", "Supabase", "Rust"]}
                     link="#"
                   />
                   <ProjectCard
                     title="Life tracker"
                     description="Simple, clean and modern habit tracker designed to help you build and maintain good habits"
                     imageSrc="/life-tracker.png"
-                    tags={["React Native", "Firebase", "Redux"]}
+                    tags={["React Native", "Zustand", "Expo"]}
                     link="#"
+                    moreInfo="Life tracker "
+
                   />
                   <ProjectCard
                     title="StormGPT"
                     description="An AI-powered tool that helps you brainstorm and generate fresh, creative ideas fast."
                     imageSrc="/stormgpt.png"
-                    tags={["Figma", "Design Systems", "Accessibility"]}
+                    tags={["Still in Design phase"]}
                     link="#"
                   />
                   <ProjectCard
-                    title="Analytics Dashboard"
-                    description="Real-time analytics dashboard for e-commerce platforms."
-                    imageSrc="/placeholder.svg?height=200&width=300"
+                    title="Nørrebro Skakklub"
+                    description="New website for the Nørrebro Skakklub, with focus on UI/UX and easy to use CMS"
+                    imageSrc="/nbskak.jpg"
                     tags={["Vue.js", "D3.js", "GraphQL"]}
                     link="#"
                   />
                   <ProjectCard
-                    title="Blockchain Explorer"
-                    description="User-friendly blockchain explorer with advanced filtering."
-                    imageSrc="/placeholder.svg?height=200&width=300"
+                    title="Flimmer"
+                    description="kid-friendly video platform where kids can watch curated videos and complete creative tasks related to them"
+                    imageSrc="/flimmer.svg"
                     tags={["Web3.js", "React", "Node.js"]}
                     link="#"
                   />
