@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { ExternalLink, X } from "lucide-react"
 import Link from "next/link"
@@ -29,6 +29,14 @@ interface ProjectModalProps {
 
 export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
   if (!project) return null
+
+  useEffect(() => {
+    if (isOpen) {
+      document.getElementById("corpse")!.classList.add("scale-[95%]") 
+    } else {
+      document.getElementById("corpse")!.classList.remove("scale-[95%]")
+    }
+  })
 
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>

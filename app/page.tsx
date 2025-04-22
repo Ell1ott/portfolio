@@ -21,7 +21,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col w-[100vw]" id="corpse">
       {/* <Navbar /> */}
       <main className="flex-1">
         {/* Hero/About Me Section */}
