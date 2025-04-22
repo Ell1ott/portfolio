@@ -32,16 +32,15 @@ export default function Home() {
           <IdBadge></IdBadge>
 
           <div className="flex items-center pr-[20rem] py-20 md:py-32 h-full">
-            <div className="flex container px-4 md:px-14 mx-auto max-w-[55rem] items-center justify-between">
+            <div className="flex container px-4 md:px-14 mx-auto max-w-4xl items-center justify-between">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2 z-20">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none z-20">
                     Hi, I'm{" "}
-                    <span className="text-primary">Elliott Friedrich</span>
+                    <span className="text-primary">Elliott</span>
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    I'm a passionate creator, innovator, and entrepreneur with a
-                    focus on building impactful solutions.
+                  I'm a 17-year-old fullstack developer who loves using the modern tech to solve our everyday problems. 
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row z-20">
@@ -110,7 +109,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+            <div className="mx-auto grid max-w-4xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
               <Image
                 src="/placeholder.svg?height=400&width=600"
                 width={600}
