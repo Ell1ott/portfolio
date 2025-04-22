@@ -14,19 +14,25 @@ useGLTF.preload('/fullpfp.glb')
 useTexture.preload('/band.jpg')
 
 export function IdBadge() {
+
+  const [infront, setInfront] = useState(false)
+
+  useEffect(() => {
+   console.log("infront", infront)
+  }, [infront])
   
   return (
-    <Canvas camera={{ position: [-1.5, -0.5, 12], fov: 25, rotateOnWorldAxis: [0, 10, 0], rotateY: 1, rotation: [0, 0, 0] }} gl={{ alpha: true }} style={{position: "absolute", zIndex: 10}}>
+    <Canvas dpr={[1, 2]} camera={{ position: [-1.5, -0.5, 11], fov: 25, rotation: [0, 0, 0,] }} gl={{ alpha: true }} style={{position: "absolute", zIndex: infront ? 21 : 10}}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-        <Band />
+        <Band setInfront={setInfront}/>
       </Physics>
       <Environment blur={2}>
         <color attach="environment" args={['#FAFAFA']} />
         {/* Removed the white background color */}
         
         
-        <group rotation={[0, -0.05, 0]}>
+        <group >
           <Lightformer intensity={3} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
           <Lightformer intensity={4.5} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
           <Lightformer intensity={5 } color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
@@ -37,7 +43,7 @@ export function IdBadge() {
   )
 }
 
-function Band({ maxSpeed = 50, minSpeed = 10 }) {
+function Band({ setInfront, maxSpeed = 50, minSpeed = 10 }) {
   const band = useRef(), fixed = useRef(), j1 = useRef(), j2 = useRef(), j3 = useRef(), card = useRef() // prettier-ignore
   const vec = new THREE.Vector3(), ang = new THREE.Vector3(), rot = new THREE.Vector3(), dir = new THREE.Vector3() // prettier-ignore
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
@@ -84,6 +90,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
       curve.points[3].copy(fixed.current.translation())
       const points = curve.getPoints(32)
       band.current.geometry.setPoints([new THREE.Vector3().copy(points[0].add(new THREE.Vector3(0, -0.01, 0))), ...points], p => p < 0.05  ? 0 : 1)
+      setInfront(j3.current.translation().x < -0.5)
       
       // Tilt it back towards the screen
       ang.copy(card.current.angvel())
@@ -134,7 +141,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
             onPointerUp={(e) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
             onPointerDown={(e) => (e.target.setPointerCapture(e.pointerId), drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation()))))}>
             <mesh geometry={nodes.card.geometry}>
-              <meshPhysicalMaterial map={materials.base.map} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.3} metalness={0.5} />
+              <meshPhysicalMaterial map={materials.base.map} alphaTest={0.9} map-anisotropy={16} clearcoat={1} clearcoatRoughness={0.15} roughness={0.3} metalness={0.5} />
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />

@@ -22,7 +22,7 @@ export default function Home() {
         <section id="about" className="relative  overflow-hidden h-[calc(100vh)] bg-neutral-200">
         <IdBadge></IdBadge>
 
-          <div className="flex items-center py-20 md:py-32">
+          <div className="flex items-center py-20 md:py-32 h-full">
             <div className="flex container px-4 md:px-14 mx-auto max-w-[80rem] items-center justify-between">
             
                 <div className="flex flex-col justify-center space-y-4">
@@ -34,7 +34,7 @@ export default function Home() {
                       I'm a passionate creator, innovator, and entrepreneur with a focus on building impactful solutions.
                     </p>
                   </div>
-                  <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                  <div className="flex flex-col gap-2 min-[400px]:flex-row z-20">
                     <Button asChild>
                       <Link href="#contact">Get in touch</Link>
                     </Button>
@@ -42,7 +42,7 @@ export default function Home() {
                       <Link href="#projects">View my work</Link>
                     </Button>
                   </div>
-                  <div className="flex items-center gap-4 pt-4">
+                  <div className="flex items-center gap-4 pt-4 z-20">
                     <Link
                       href="https://twitter.com"
                       target="_blank"
