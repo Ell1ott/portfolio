@@ -11,7 +11,7 @@ import { useControls } from 'leva'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 useGLTF.preload('/fullpfp.glb')
-useTexture.preload('/band.jpg')
+useTexture.preload('/band.png')
 
 export function IdBadge() {
 
@@ -72,7 +72,7 @@ function Band({ setInfront, maxSpeed = 50, minSpeed = 10 }) {
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 2, linearDamping: 2 }
   const { nodes, materials } = useGLTF('/fullpfp.glb')
   console.log(materials)
-  const texture = useTexture('/band.jpg')
+  const texture = useTexture('/band.png')
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
   const [dragged, drag] = useState(false)
