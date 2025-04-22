@@ -12,6 +12,22 @@ body {
   }
 }
 
+#id-badge {
+  animation: move-up linear;
+  animation-timeline: scroll();
+  animation-range: 0 100vh;
+  animation-duration: 1ms;
+}
+
+@keyframes move-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
