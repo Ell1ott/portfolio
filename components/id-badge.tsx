@@ -90,7 +90,7 @@ function Band({ setInfront, maxSpeed = 50, minSpeed = 10 }) {
       curve.points[3].copy(fixed.current.translation())
       const points = curve.getPoints(32)
       band.current.geometry.setPoints([new THREE.Vector3().copy(points[0].add(new THREE.Vector3(0, -0.01, 0))), ...points], p => p < 0.05  ? 0 : 1)
-      setInfront(j3.current.translation().x < -0.5)
+      setInfront(j3.current.translation().x < -0.25)
       
       // Tilt it back towards the screen
       ang.copy(card.current.angvel())

@@ -20,14 +20,14 @@ export default function Home() {
       <main className="flex-1">
         {/* Hero/About Me Section */}
         <section id="about" className="relative  overflow-hidden h-[calc(100vh)] bg-neutral-200">
-        <IdBadge></IdBadge>
+          <IdBadge></IdBadge>
 
           <div className="flex items-center py-20 md:py-32 h-full">
             <div className="flex container px-4 md:px-14 mx-auto max-w-[80rem] items-center justify-between">
             
                 <div className="flex flex-col justify-center space-y-4">
-                  <div className="space-y-2">
-                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  <div className="space-y-2 z-20">
+                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none z-20">
                       Hi, I'm <span className="text-primary">Elliott Friedrich</span>
                     </h1>
                     <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -113,12 +113,6 @@ export default function Home() {
                       <span className="sr-only">LinkedIn</span>
                     </Link>
                   </div>
-                </div>
-                <div className="flex justify-center lg:justify-end">
-                  <Avatar className="h-[300px] w-[300px] rounded-full border-4 border-primary/20">
-                    <AvatarImage src="/placeholder.svg?height=300&width=300" alt="Your Name" />
-                    <AvatarFallback>YN</AvatarFallback>
-                  </Avatar>
                 </div>
             
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex justify-center">
