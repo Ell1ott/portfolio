@@ -19,8 +19,8 @@ export default function Home() {
       {/* <Navbar /> */}
       <main className="flex-1">
         {/* Hero/About Me Section */}
-        <section id="about" className="relative py-20 md:py-32 overflow-hidden h-[calc(100vh)]">
-          {/* <div className="flex items-center">
+        <section id="about" className="relative  overflow-hidden h-[calc(100vh)]">
+          {/* <div className="flex items-center py-20 md:py-32">
             <div className="flex container px-4 md:px-14 mx-auto max-w-[80rem] items-center justify-between">
             
                 <div className="flex flex-col justify-center space-y-4">

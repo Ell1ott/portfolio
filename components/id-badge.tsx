@@ -16,21 +16,21 @@ useTexture.preload('/band.jpg')
 export function IdBadge() {
   
   return (
-    <Canvas camera={{ position: [1, -0.5, 12], fov: 25, rotateOnWorldAxis: [0, 10, 0], rotateY: 1, rotation: [0, 0.25, 0] }} gl={{ alpha: true }} style={{backgroundColor: "rgb(220, 220, 220)"}}>
+    <Canvas camera={{ position: [1, -0.5, 12], fov: 25, rotateOnWorldAxis: [0, 10, 0], rotateY: 1, rotation: [0, 0, 0] }} gl={{ alpha: true }} style={{backgroundColor: "rgb(220, 220, 220)"}}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
       </Physics>
       <Environment blur={2}>
-        <color attach="environment" args={['#F0F0F0']} />
+        <color attach="environment" args={['#FAFAFA']} />
         {/* Removed the white background color */}
         
         
         <group rotation={[0, -0.05, 0]}>
           <Lightformer intensity={3} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
           <Lightformer intensity={4.5} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-          <Lightformer intensity={4.5 } color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-          <Lightformer intensity={15} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
+          <Lightformer intensity={5 } color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+          <Lightformer intensity={20} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
         </group>
       </Environment>
     </Canvas>
@@ -45,7 +45,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   console.log(materials)
   const texture = useTexture('/band.jpg')
   const { width, height } = useThree((state) => state.size)
-  const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
+  const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
   const [dragged, drag] = useState(false)
   const [hovered, hover] = useState(false)
 
@@ -77,13 +77,13 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         ref.current.lerped.lerp(ref.current.translation(), delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)))
       })
       // Calculate catmul curve
-        
+
       curve.points[0].copy(j3.current.translation())
-      curve.points[1].copy((j3.current.translation() as THREE.Vector3)).add(new THREE.Vector3(0, 0.1, 0))
-      curve.points[2].copy(j2.current.lerped)
-      curve.points[3].copy(j1.current.lerped)
-      curve.points[4].copy(fixed.current.translation())
-      band.current.geometry.setPoints(curve.getPoints(32), p => p == 0 ? 0 : 1)
+      curve.points[1].copy(j2.current.lerped)
+      curve.points[2].copy(j1.current.lerped)
+      curve.points[3].copy(fixed.current.translation())
+      const points = curve.getPoints(32)
+      band.current.geometry.setPoints([new THREE.Vector3().copy(points[0].add(new THREE.Vector3(0, -0.01, 0))), ...points], p => p < 0.05  ? 0 : 1)
       
       // Tilt it back towards the screen
       ang.copy(card.current.angvel())
