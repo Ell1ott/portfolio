@@ -24,6 +24,7 @@ interface ProjectModalProps {
     imageSrc: string
     tags: string[]
     link: string
+    moreInfo?: string
   } | null
 }
 
@@ -42,7 +43,7 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <SheetContent 
         side="bottom" 
-        className="h-[85vh] max-w-3xl mx-auto rounded-t-3xl overflow-y-auto backdrop-blur-sm"
+        className="h-[85vh] max-w-3xl mx-auto rounded-t-3xl overflow-y-auto overflow-x-hidden backdrop-blur-sm"
         // Custom animation classes
         style={{
           transform: isOpen ? "translateY(0) scale(1)" : "translateY(100%) scale(0.95)",
@@ -63,7 +64,7 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
         </SheetHeader>
         
         <div className="space-y-6">
-          <div className="relative aspect-video w-full overflow-hidden rounded-xl border">
+          <div className="relative w-full overflow-hidden rounded-xl border">
             <Image
               src={project.imageSrc || "/placeholder.svg"}
               alt={project.title}
@@ -81,18 +82,12 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
           </div>
           
           <div className="prose max-w-none">
-            <h3>Project Details</h3>
+            
             <p>
-              This is where you would include more detailed information about the project,
-              such as the challenges faced, solutions implemented, and outcomes achieved.
+              {project.moreInfo}
             </p>
             
-            <h3>Technologies Used</h3>
-            <p>
-              Elaborate on the technologies, frameworks, and tools used in this project
-              and why they were chosen.
-            </p>
-          </div>
+            
           
           <div className="flex justify-end pt-4">
             <Button asChild>

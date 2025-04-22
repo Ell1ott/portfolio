@@ -15,9 +15,10 @@ interface ProjectCardProps {
   imageSrc: string
   tags: string[]
   link: string
+  moreInfo?: string
 }
 
-export function ProjectCard({ title, description, imageSrc, tags, link }: ProjectCardProps) {
+export function ProjectCard({ title, description, imageSrc, tags, link, moreInfo }: ProjectCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleOpenModal = () => {
@@ -42,8 +43,9 @@ export function ProjectCard({ title, description, imageSrc, tags, link }: Projec
           <Image
             src={imageSrc || "/placeholder.svg"}
             alt={title}
+            style={{ backgroundSize: "cont" }}
             fill
-            className="object-cover transition-all duration-200 group-hover:border-black/30 rounded-xl border"
+            className="object-cover transition-all duration-200 group-hover:border-black/30 rounded-xl border size-fit"
           />
         </div>
         
@@ -62,7 +64,7 @@ export function ProjectCard({ title, description, imageSrc, tags, link }: Projec
       <ProjectModal 
         isOpen={isModalOpen} 
         onClose={handleCloseModal} 
-        project={{ title, description, imageSrc, tags, link }}
+        project={{ title, description, imageSrc, tags, link, moreInfo }}
       />
     </>
   )
