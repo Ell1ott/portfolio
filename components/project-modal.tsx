@@ -64,7 +64,7 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
         </SheetHeader>
         
         <div className="space-y-6">
-          <div className="relative w-full overflow-hidden rounded-xl border">
+          <div className="relative aspect-[2] w-full overflow-hidden rounded-xl border">
             <Image
               src={project.imageSrc || "/placeholder.svg"}
               alt={project.title}
