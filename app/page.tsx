@@ -230,9 +230,9 @@ export default function Home() {
                     link="#"
                   />
                   <ProjectCard
-                    title="Design System"
-                    description="Comprehensive design system for enterprise applications."
-                    imageSrc="/placeholder.svg?height=200&width=300"
+                    title="StormGPT"
+                    description="An AI-powered tool that helps you brainstorm and generate fresh, creative ideas fast."
+                    imageSrc="/stormgpt.png"
                     tags={["Figma", "Design Systems", "Accessibility"]}
                     link="#"
                   />
