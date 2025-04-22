@@ -96,7 +96,7 @@ export default function Home() {
         </section>
 
         {/* Current Work Section */}
-        <section id="current" className="py-12 md:py-24 bg-muted/50">
+        {/* <section id="current" className="py-12 md:py-24 bg-muted/50">
           <div className="container px-4 md:px-14 mx-auto max-w-6xl ">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -189,32 +189,22 @@ export default function Home() {
               </Card>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Projects Section */}
         <section id="projects" className="py-12 md:py-24">
           <div className="container px-4 md:px-14 max-w-6xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                   My Projects
                 </h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                {/* <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   A showcase of my work, projects, and contributions.
-                </p>
+                </p> */}
               </div>
             </div>
-            <Tabs defaultValue="all" className="mt-8">
-              <div className="flex justify-center">
-                <TabsList>
-                  <TabsTrigger value="all">All</TabsTrigger>
-                  <TabsTrigger value="web">Web</TabsTrigger>
-                  <TabsTrigger value="mobile">Mobile</TabsTrigger>
-                  <TabsTrigger value="design">Design</TabsTrigger>
-                </TabsList>
-              </div>
-              <TabsContent value="all" className="mt-6">
-                <div className="grid gap-8 grid-cols-2">
+            <div className="grid gap-8 grid-cols-2 mt-20">
                   <ProjectCard
                     title="Akademia"
                     description="An all-in-one solution for all of the schools' digital needs."
@@ -247,19 +237,23 @@ export default function Home() {
                   />
                   <ProjectCard
                     title="Flimmer"
-                    description="kid-friendly video platform where kids can watch curated videos and complete creative tasks related to them"
+                    description="Kid-friendly video platform where kids can watch curated videos and complete creative tasks related to them"
                     imageSrc="/flimmer.svg"
                     tags={["Web3.js", "React", "Node.js"]}
                     link="#"
                   />
-                  <ProjectCard
-                    title="AI Assistant"
-                    description="Conversational AI assistant for productivity enhancement."
-                    imageSrc="/placeholder.svg?height=200&width=300"
-                    tags={["Python", "TensorFlow", "NLP"]}
-                    link="#"
-                  />
                 </div>
+            {/* <Tabs defaultValue="all" className="mt-8">
+              <div className="flex justify-center">
+                <TabsList>
+                  <TabsTrigger value="all">All</TabsTrigger>
+                  <TabsTrigger value="web">Web</TabsTrigger>
+                  <TabsTrigger value="mobile">Mobile</TabsTrigger>
+                  <TabsTrigger value="design">Design</TabsTrigger>
+                </TabsList>
+              </div>
+              <TabsContent value="all" className="mt-6">
+               
               </TabsContent>
               <TabsContent value="web" className="mt-6">
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -308,12 +302,12 @@ export default function Home() {
                   />
                 </div>
               </TabsContent>
-            </Tabs>
+            </Tabs> */}
           </div>
         </section>
 
         {/* Accomplishments Section */}
-        <section id="accomplishments" className="py-12 md:py-24 bg-muted/50">
+        {/* <section id="accomplishments" className="py-12 md:py-24 bg-muted/50">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -427,11 +421,11 @@ export default function Home() {
               </Card>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Contact Section */}
         <section id="contact" className="py-12 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-14 max-w-6xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -466,7 +460,7 @@ export default function Home() {
                       <rect width="20" height="16" x="2" y="4" rx="2" />
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
-                    <span>your.email@example.com</span>
+                    <span>elliott.friedrich@outlook.dk</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <svg
@@ -483,7 +477,7 @@ export default function Home() {
                     >
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
-                    <span>(123) 456-7890</span>
+                    <span>(+64) 021 141 0935</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <svg
@@ -501,7 +495,7 @@ export default function Home() {
                       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
-                    <span>San Francisco, CA</span>
+                    <span>New Zealand</span>
                   </div>
                 </div>
                 <div className="mt-6 flex gap-4">
