@@ -27,12 +27,12 @@ export default function Home() {
         {/* Hero/About Me Section */}
         <section
           id="about"
-          className="relative  overflow-hidden h-[calc(100vh)] bg-neutral-200"
+          className="relative overflow-clip h-[calc(100vh)] bg-neutral-200"
         >
           <IdBadge></IdBadge>
 
-          <div className="flex items-center py-20 md:py-32 h-full">
-            <div className="flex container px-4 md:px-14 mx-auto max-w-[80rem] items-center justify-between">
+          <div className="flex items-center pr-[20rem] py-20 md:py-32 h-full">
+            <div className="flex container px-4 md:px-14 mx-auto max-w-[55rem] items-center justify-between">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2 z-20">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none z-20">

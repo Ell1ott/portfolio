@@ -22,11 +22,11 @@ export function IdBadge() {
   }, [infront])
   
   return (
-    <Canvas dpr={[1, 2]} camera={{ position: [-1.5, -0.5, 11], fov: 25, rotation: [0, 0, 0,] }} gl={{ alpha: true }} style={{position: "absolute", zIndex: infront ? 21 : 10}}>
+    <Canvas  dpr={[1, 2]} camera={{ position: [-1.5, -0.5, 11], fov: 25, rotation: [0, 0, 0,] }} gl={{ alpha: true }} style={{position: "absolute", zIndex: infront ? 21 : 10}} id="id-badge">
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band setInfront={setInfront}/>
-      </Physics>
+      </Physics>  
       <Environment blur={2}>
         <color attach="environment" args={['#FAFAFA']} />
         {/* Removed the white background color */}
