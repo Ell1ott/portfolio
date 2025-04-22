@@ -32,7 +32,7 @@ export default function Home() {
           <IdBadge></IdBadge>
 
           <div className="flex items-center justify-center py-20 md:py-32 h-full">
-            <div className="flex container px-4 md:px-14 !pr-[20rem] mx-auto max-w-5xl items-center justify-between">
+            <div className="flex container px-4 md:px-14 !pr-[20rem] mx-auto max-w-6xl items-center justify-between">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2 z-20">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none z-20">
@@ -97,7 +97,7 @@ export default function Home() {
 
         {/* Current Work Section */}
         <section id="current" className="py-12 md:py-24 bg-muted/50">
-          <div className="container px-4 md:px-6 mx-auto max-w-4xl ">
+          <div className="container px-4 md:px-14 mx-auto max-w-6xl ">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -193,7 +193,7 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="py-12 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container px-4 md:px-14 max-w-6xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
