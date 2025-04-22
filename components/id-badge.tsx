@@ -16,7 +16,7 @@ useTexture.preload('/band.jpg')
 export function IdBadge() {
   
   return (
-    <Canvas camera={{ position: [1, -0.5, 12], fov: 25, rotateOnWorldAxis: [0, 10, 0], rotateY: 1, rotation: [0, 0, 0] }} gl={{ alpha: true }} style={{backgroundColor: "rgb(220, 220, 220)"}}>
+    <Canvas camera={{ position: [-1.5, -0.5, 12], fov: 25, rotateOnWorldAxis: [0, 10, 0], rotateY: 1, rotation: [0, 0, 0] }} gl={{ alpha: true }} style={{position: "absolute", zIndex: 10}}>
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band />
