@@ -45,7 +45,7 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
   console.log(materials)
   const texture = useTexture('/band.jpg')
   const { width, height } = useThree((state) => state.size)
-  const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
+  const [curve] = useState(() => new THREE.CatmullRomCurve3([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]))
   const [dragged, drag] = useState(false)
   const [hovered, hover] = useState(false)
 
@@ -77,11 +77,14 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
         ref.current.lerped.lerp(ref.current.translation(), delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed)))
       })
       // Calculate catmul curve
+        
       curve.points[0].copy(j3.current.translation())
-      curve.points[1].copy(j2.current.lerped)
-      curve.points[2].copy(j1.current.lerped)
-      curve.points[3].copy(fixed.current.translation())
-      band.current.geometry.setPoints(curve.getPoints(32))
+      curve.points[1].copy((j3.current.translation() as THREE.Vector3)).add(new THREE.Vector3(0, 0.1, 0))
+      curve.points[2].copy(j2.current.lerped)
+      curve.points[3].copy(j1.current.lerped)
+      curve.points[4].copy(fixed.current.translation())
+      band.current.geometry.setPoints(curve.getPoints(32), p => p == 0 ? 0 : 1)
+      
       // Tilt it back towards the screen
       ang.copy(card.current.angvel())
       rot.copy(card.current.rotation())
