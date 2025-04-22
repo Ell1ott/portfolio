@@ -15,14 +15,37 @@ useTexture.preload('/band.jpg')
 
 export function IdBadge() {
 
+  const canvasRef = useRef()
   const [infront, setInfront] = useState(false)
+  const [fov, setFov] = useState(25)
+  const fovRef = useRef(100)
 
   useEffect(() => {
-   console.log("infront", infront)
-  }, [infront])
-  
+    const updateFov = () => {
+      const height = window.innerHeight
+      const width = window.innerWidth
+      const baseFov = 25
+      const minFov = 20
+      const maxFov = 30
+      const newFov = (baseFov * (height /  Math.min(width, 1000))) / 2 + (baseFov / 2)
+      console.log(newFov, height)
+      if (canvasRef.current) {
+        console.log(canvasRef.current)
+        canvasRef.current.camera.fov = newFov
+        canvasRef.current.camera.position.x = -1.25 + (height - Math.min(width, 1000) * 1.2) / 1000
+        console.log(height, width)
+        canvasRef.current.camera.updateProjectionMatrix()
+        
+      }
+    }
+    
+    updateFov()
+    window.addEventListener('resize', updateFov)
+    return () => window.removeEventListener('resize', updateFov)
+  }, [])
+
   return (
-    <Canvas  dpr={[1, 2]} camera={{ position: [-1.5, -0.5, 11], fov: 25, rotation: [0, 0, 0,] }} gl={{ alpha: true }} style={{position: "absolute", zIndex: infront ? 21 : 10}} id="id-badge">
+    <Canvas dpr={[1, 2]} camera={{ position: [-1.5, -0.5, 11], fov: 25, rotation: [0, 0, 0] }} gl={{ alpha: true }} style={{position: "absolute", zIndex: infront ? 21 : 10}} onCreated={s => canvasRef.current = s} id="id-badge">
       <ambientLight intensity={Math.PI} />
       <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
         <Band setInfront={setInfront}/>
