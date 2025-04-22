@@ -424,7 +424,7 @@ export default function Home() {
         </section> */}
 
         {/* Contact Section */}
-        <section id="contact" className="py-12 md:py-24">
+        <section id="contact" className="py-12 md:py-24 border-t bg-background/90">
           <div className="container px-4 md:px-14 max-w-6xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -572,7 +572,9 @@ export default function Home() {
               </div>
               <div className="rounded-lg border bg-card p-6 shadow-sm">
                 <h3 className="text-xl font-bold">Send a Message</h3>
-                <form className="mt-4 grid gap-4">
+                <form className="mt-4 grid gap-4" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="2d68b712-e128-4291-abf6-bcd370cd0852"></input>
+                 
                   <div className="grid gap-2">
                     <label
                       htmlFor="name"
@@ -582,6 +584,7 @@ export default function Home() {
                     </label>
                     <input
                       id="name"
+                      name="first_name"
                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       placeholder="Your name"
                     />
@@ -596,6 +599,7 @@ export default function Home() {
                     <input
                       id="email"
                       type="email"
+                      name="email"
                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       placeholder="Your email"
                     />
