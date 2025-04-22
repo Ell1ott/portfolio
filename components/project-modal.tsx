@@ -86,7 +86,7 @@ export function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
             <p>
               {project.moreInfo}
             </p>
-            
+            </div>
             
           
           <div className="flex justify-end pt-4">
