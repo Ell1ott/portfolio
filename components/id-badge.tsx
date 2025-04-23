@@ -8,6 +8,7 @@ import { useGLTF, useTexture, Environment, Lightformer, Text, Svg } from '@react
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier'
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 import { useControls } from 'leva'
+import { useTheme } from 'next-themes'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
 useGLTF.preload('/fullpfp.glb')
@@ -19,6 +20,10 @@ export function IdBadge() {
   const [infront, setInfront] = useState(false)
   const [fov, setFov] = useState(25)
   const fovRef = useRef(100)
+
+  const {theme} = useTheme()
+
+  console.log(theme)
 
   useEffect(() => {
     const updateFov = () => {
@@ -51,7 +56,7 @@ export function IdBadge() {
         <Band setInfront={setInfront}/>
       </Physics>  
       <Environment blur={2}>
-        <color attach="environment" args={['#FAFAFA']} />
+        <color attach="environment" args={[theme == "light" ? '#FAFAFA' : 'blue']} />
         {/* Removed the white background color */}
         
         
@@ -59,7 +64,7 @@ export function IdBadge() {
           <Lightformer intensity={3} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
           <Lightformer intensity={4.5} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
           <Lightformer intensity={5 } color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
-          <Lightformer intensity={20} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
+          <Lightformer intensity={theme == "light" ? 20 : 10 } color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
         </group>
       </Environment>
     </Canvas>

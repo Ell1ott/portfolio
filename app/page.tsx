@@ -18,6 +18,7 @@ import { ProjectCard } from "@/components/project-card";
 import { Timeline } from "@/components/timeline";
 import { IdBadge } from "@/components/id-badge";
 import { Badge } from "@/components/ui/badge";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
         {/* Hero/About Me Section */}
         <section
           id="about"
-          className="relative overflow-clip h-[calc(100vh)] bg-neutral-200"
+          className="relative overflow-clip h-[calc(100vh)] bg-neutral-200 dark:bg-neutral-900"
         >
           <IdBadge></IdBadge>
 
@@ -90,6 +91,9 @@ export default function Home() {
                   <ChevronDown className="h-8 w-8 animate-bounce" />
                   <span className="sr-only">Scroll down</span>
                 </Link>
+              </div>
+              <div className="absolute right-8 bottom-8 hej z-20">
+                <ModeToggle></ModeToggle>
               </div>
             </div>
           </div>
