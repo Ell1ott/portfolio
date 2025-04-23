@@ -15,6 +15,24 @@ html {
   }
 }
 
+.fancy-button {
+  transition: all 0.5s cubic-bezier(0, 0, 0.2, 1.02);
+  box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0.1);
+}
+
+.fancy-button:hover {
+  scale: 1.05;
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.fancy-button:active {
+  transition: all 0.1s cubic-bezier(0, 0.34, 1, 0.83);
+  transform: translateY(0rem);
+  scale: 0.95;
+  box-shadow: 0 0rem 0rem rgba(0, 0, 0, 0.1);
+}
+
 #id-badge {
   animation: move-up linear;
   animation-timeline: scroll();

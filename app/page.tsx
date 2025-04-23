@@ -44,10 +44,10 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row z-20">
-                  <Button asChild>
+                  <Button asChild className="fancy-button hover:bg-primary">
                     <Link href="#contact">Get in touch</Link>
                   </Button>
-                  <Button variant="outline" asChild>
+                  <Button variant="outline" asChild className="fancy-button hover:bg-background">
                     <Link href="#projects">View my work</Link>
                   </Button>
                 </div>
