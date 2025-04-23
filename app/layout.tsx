@@ -8,6 +8,11 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Elliott Friedrich",
   description: "A showcase of my work, projects, and accomplishments",
+  icons: {
+    icon: "/tornado.svg",
+    shortcut: "/tornado.svg",
+    apple: "/tornado.svg",  
+  },
 }
 
 export default function RootLayout({
