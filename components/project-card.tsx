@@ -45,7 +45,7 @@ export function ProjectCard({ title, description, imageSrc, tags, link, moreInfo
             alt={title}
             style={{ backgroundSize: "cont" }}
             fill
-            className="object-cover transition-all duration-200 group-hover:border-black/30 rounded-xl border size-fit"
+            className="object-cover transition-all duration-200 group-hover:border-black/30 dark:group-hover:border-white/30 rounded-xl border size-fit"
           />
         </div>
         
