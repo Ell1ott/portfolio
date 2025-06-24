@@ -136,6 +136,7 @@ html {
 }
 
 .prose img {
-	border-radius: 1rem;
+	/* border-radius: 1rem; */
 	border: 1px solid #e0e0e0;
+	@apply rounded-xl;
 }

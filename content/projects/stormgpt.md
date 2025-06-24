@@ -18,4 +18,8 @@ Initial sketches and design mockups have been created to explore different UI la
 
 Below are some of the sketches and early design ideas that guided our thinking:
 
-[carousel:stormgpt/stormgpt-sketch-overview.png,stormgpt/stormgpt-sketch.png]
+[carousel:stormgpt/sketch-overview.png,stormgpt/simple-sketch.png,stormgpt/colab-sketch.png,stormgpt/concept.png]
+
+Based of these sketches i then created some designs:
+
+![Early design of stormgpt](stormgpt/design.png)
