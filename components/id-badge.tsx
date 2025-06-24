@@ -29,6 +29,7 @@ useGLTF.preload("/fullpfp.glb");
 useTexture.preload("/band.png");
 
 export function IdBadge() {
+	if (window.innerWidth / window.innerHeight < 1) return null;
 	const canvasRef = useRef();
 	const [infront, setInfront] = useState(false);
 	const [fov, setFov] = useState(25);
