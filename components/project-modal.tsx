@@ -7,6 +7,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
 import { Badge } from "@/components/ui/badge";
+import { ImageCarousel } from "@/components/ui/image-carousel";
 import { Button } from "@/components/ui/button";
 import {
 	Sheet,
@@ -49,6 +50,25 @@ export function ProjectModal({
 	const markdownContent =
 		projectsContent[project.slug] ||
 		"# Project Content Not Found\n\nThe content for this project is currently unavailable.";
+
+	// Function to parse carousel syntax
+	const parseCarouselSyntax = (content: string) => {
+		// Look for carousel blocks: [carousel:image1.jpg,image2.jpg,image3.jpg]
+		return content.replace(/\[carousel:(.*?)\]/g, (match, imageList) => {
+			const images = imageList.split(",").map((img: string) => {
+				const trimmed = img.trim();
+				return {
+					src: trimmed.startsWith("/") ? trimmed : `/${trimmed}`,
+					alt: trimmed.split("/").pop()?.split(".")[0] || "Image",
+				};
+			});
+			return `<CAROUSEL_PLACEHOLDER>${JSON.stringify(
+				images
+			)}</CAROUSEL_PLACEHOLDER>`;
+		});
+	};
+
+	const processedContent = parseCarouselSyntax(markdownContent);
 
 	return (
 		<Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -134,9 +154,24 @@ export function ProjectModal({
 								h3: ({ children }) => (
 									<h3 className="text-lg font-medium mb-2 mt-4">{children}</h3>
 								),
-								p: ({ children }) => (
-									<p className="mb-4 leading-relaxed">{children}</p>
-								),
+								p: ({ children }) => {
+									// Check if this paragraph contains a carousel placeholder
+									const text = children?.toString() || "";
+									if (text.includes("<CAROUSEL_PLACEHOLDER>")) {
+										const match = text.match(
+											/<CAROUSEL_PLACEHOLDER>(.*?)<\/CAROUSEL_PLACEHOLDER>/
+										);
+										if (match) {
+											try {
+												const images = JSON.parse(match[1]);
+												return <ImageCarousel images={images} />;
+											} catch (e) {
+												console.error("Failed to parse carousel data:", e);
+											}
+										}
+									}
+									return <p className="mb-4 leading-relaxed">{children}</p>;
+								},
 								ul: ({ children }) => (
 									<ul className="mb-4 space-y-1 list-disc list-inside">
 										{children}
@@ -162,7 +197,7 @@ export function ProjectModal({
 								),
 							}}
 						>
-							{markdownContent}
+							{processedContent}
 						</ReactMarkdown>
 					</div>
 
