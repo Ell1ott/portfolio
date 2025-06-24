@@ -15,6 +15,7 @@ const config: Config = {
 					raw: "(min-aspect-ratio: 1/1) and (orientation: portrait)",
 				},
 				tall: { raw: "(max-aspect-ratio: 1/1)" },
+				xs: "400px",
 			},
 			colors: {
 				background: "hsl(var(--background))",

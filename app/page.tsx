@@ -35,8 +35,8 @@ export default async function Home() {
 					<IdBadge></IdBadge>
 
 					<div className="flex items-center justify-center py-20 md:py-32 h-full">
-						<div className="flex container px-4 md:px-14 !pr-[20rem] mx-auto max-w-6xl items-center justify-between">
-							<div className="flex flex-col justify-center space-y-4">
+						<div className="flex container px-4 md:px-14 !pr-[20rem] tall:!pr-4 mx-auto max-w-6xl items-center justify-between">
+							<div className="flex flex-col justify-center space-y-4 tall:m-auto">
 								<div className="space-y-2 z-20">
 									<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none z-20">
 										Hi, I'm <span className="text-primary">Elliott</span>
@@ -45,15 +45,26 @@ export default async function Home() {
 										I'm a 17-year-old fullstack developer who loves using modern
 										tech to solve our everyday problems.
 									</p>
+									<div className="relative aspect-square hidden tall:block w-full overflow-hidden rounded-lg">
+										<Image
+											src="/pfp.jpg"
+											alt="Elliott"
+											fill
+											className="object-cover"
+										/>
+									</div>
 								</div>
-								<div className="flex flex-col gap-2 min-[400px]:flex-row z-20">
-									<Button asChild className="fancy-button hover:bg-primary">
+								<div className="flex gap-2 flex-row z-20 items-stretch justify-stretch">
+									<Button
+										asChild
+										className="fancy-button hover:bg-primary flex-1"
+									>
 										<Link href="#contact">Get in touch</Link>
 									</Button>
 									<Button
 										variant="outline"
 										asChild
-										className="fancy-button hover:bg-background"
+										className="fancy-button hover:bg-background flex-1"
 									>
 										<Link href="#projects">View my work</Link>
 									</Button>
