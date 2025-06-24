@@ -19,8 +19,10 @@ import { Timeline } from "@/components/timeline";
 import { IdBadge } from "@/components/id-badge";
 import { Badge } from "@/components/ui/badge";
 import { ModeToggle } from "@/components/mode-toggle";
+import { getAllProjectsContent } from "@/lib/markdown";
 
-export default function Home() {
+export default async function Home() {
+	const projectsContent = await getAllProjectsContent();
 	return (
 		<div className="flex min-h-screen flex-col w-[100vw]" id="corpse">
 			{/* <Navbar /> */}
@@ -212,13 +214,15 @@ export default function Home() {
                 </p> */}
 							</div>
 						</div>
-						<div className="grid gap-8 grid-cols-2 mt-20">
+						<div className="grid gap-8 grid-cols-1 sm:grid-cols-2 mt-20">
 							<ProjectCard
 								title="Akademia"
 								description="An all-in-one solution for all of the schools' digital needs."
 								imageSrc="/akademia.webp"
 								tags={["Svelte", "Supabase", "Rust"]}
 								link="#"
+								slug="akademia"
+								projectsContent={projectsContent}
 							/>
 							<ProjectCard
 								title="Life tracker"
@@ -226,7 +230,8 @@ export default function Home() {
 								imageSrc="/life-tracker.png"
 								tags={["React Native", "Zustand", "Expo"]}
 								link="#"
-								moreInfo="Life tracker "
+								slug="life-tracker"
+								projectsContent={projectsContent}
 							/>
 							<ProjectCard
 								title="StormGPT"
@@ -234,6 +239,8 @@ export default function Home() {
 								imageSrc="/stormgpt.png"
 								tags={["Still in Design phase"]}
 								link="#"
+								slug="stormgpt"
+								projectsContent={projectsContent}
 							/>
 							<ProjectCard
 								title="Nørrebro Skakklub"
@@ -241,6 +248,8 @@ export default function Home() {
 								imageSrc="/nbskak.jpg"
 								tags={["React"]}
 								link="#"
+								slug="norrebro-skakklub"
+								projectsContent={projectsContent}
 							/>
 							<ProjectCard
 								title="Flimmer"
@@ -248,6 +257,8 @@ export default function Home() {
 								imageSrc="/flimmer.svg"
 								tags={[]}
 								link="#"
+								slug="flimmer"
+								projectsContent={projectsContent}
 							/>
 						</div>
 						{/* <Tabs defaultValue="all" className="mt-8">
