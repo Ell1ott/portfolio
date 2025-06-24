@@ -220,7 +220,7 @@ export default async function Home() {
 								description="An all-in-one solution for all of the schools' digital needs."
 								imageSrc="/akademia.webp"
 								tags={["Svelte", "Supabase", "Rust"]}
-								link="#"
+								link="https://akademia.cc/"
 								slug="akademia"
 								projectsContent={projectsContent}
 							/>
@@ -229,7 +229,7 @@ export default async function Home() {
 								description="Simple, clean and modern habit tracker designed to help you build and maintain good habits"
 								imageSrc="/life-tracker.png"
 								tags={["React Native", "Zustand", "Expo"]}
-								link="#"
+								link="https://github.com/Ell1ott/habit-tracker"
 								slug="life-tracker"
 								projectsContent={projectsContent}
 							/>
