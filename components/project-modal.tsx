@@ -68,25 +68,47 @@ export function ProjectModal({
 				<SheetHeader className="relative pb-6">
 					<button
 						onClick={onClose}
-						className="absolute right-0 top-0 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+						className="absolute right-0 top-0 p-2 m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
 					>
 						<X className="h-6 w-6" />
 					</button>
-					<SheetTitle className="text-2xl font-bold">
-						{project.title}
-					</SheetTitle>
+					<div className="flex items-center gap-4 pr-12">
+						<SheetTitle className="text-3xl sm:text-4xl md:text-5xl font-bold flex-1">
+							{project.title}
+						</SheetTitle>
+						{/* <Button
+							asChild
+							size="sm"
+							variant="outline"
+							className="flex items-center gap-2 mr-4"
+						>
+							<Link
+								href={project.link}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<ExternalLink className="h-4 w-4" />
+								Visit
+							</Link>
+						</Button> */}
+					</div>
 					<SheetDescription>{project.description}</SheetDescription>
 				</SheetHeader>
 
 				<div className="space-y-6">
-					<div className="relative aspect-[2] w-full overflow-hidden rounded-xl border">
+					<a
+						href={project.link}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="relative aspect-[2] w-full overflow-hidden block rounded-xl border"
+					>
 						<Image
 							src={project.imageSrc || "/placeholder.svg"}
 							alt={project.title}
 							fill
 							className="object-cover"
 						/>
-					</div>
+					</a>
 
 					<div className="flex flex-wrap gap-2">
 						{project.tags.map((tag) => (
