@@ -2,6 +2,7 @@ import type React from "react";
 import "@/app/globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Home } from "@/components/homepage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,9 +30,9 @@ export default function RootLayout({
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
-				>
-					{children}
-				</ThemeProvider>
+				></ThemeProvider>
+				<Home />
+				{children}
 			</body>
 		</html>
 	);

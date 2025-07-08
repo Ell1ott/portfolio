@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ExternalLink, X } from "lucide-react";
 import Link from "next/link";
@@ -18,8 +19,6 @@ import {
 } from "@/components/ui/sheet";
 
 interface ProjectModalProps {
-	isOpen: boolean;
-	onClose: () => void;
 	project: {
 		title: string;
 		description: string;
@@ -31,17 +30,20 @@ interface ProjectModalProps {
 	projectsContent: Record<string, string>;
 }
 
-export function ProjectModal({
-	isOpen,
-	onClose,
-	project,
-	projectsContent,
-}: ProjectModalProps) {
+export function ProjectModal({ project, projectsContent }: ProjectModalProps) {
+	console.log("project", project);
+	console.log("projectsContent", projectsContent);
+	const router = useRouter();
+	const [isOpen, setIsOpen] = useState(true);
 	useEffect(() => {
 		if (isOpen) {
 			document.getElementById("corpse")!.classList.add("scale-[95%]");
 		} else {
 			document.getElementById("corpse")!.classList.remove("scale-[95%]");
+			setTimeout(() => {
+				// go back to previous page
+				router.push("/", undefined, { shallow: true });
+			}, 500);
 		}
 	}, [isOpen]);
 
@@ -71,7 +73,7 @@ export function ProjectModal({
 	const processedContent = parseCarouselSyntax(markdownContent);
 
 	return (
-		<Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
+		<Sheet open={isOpen} onOpenChange={(open) => !open && setIsOpen(false)}>
 			<SheetContent
 				side="bottom"
 				className="h-[85vh] max-w-3xl mx-auto rounded-t-3xl overflow-y-auto overflow-x-hidden backdrop-blur-sm"
@@ -87,7 +89,7 @@ export function ProjectModal({
 			>
 				<SheetHeader className="relative pb-6">
 					<button
-						onClick={onClose}
+						onClick={() => setIsOpen(false)}
 						className="absolute right-0 top-0 p-2 m-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
 					>
 						<X className="h-6 w-6" />

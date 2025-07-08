@@ -20,8 +20,9 @@ import { IdBadge } from "@/components/id-badge";
 import { Badge } from "@/components/ui/badge";
 import { ModeToggle } from "@/components/mode-toggle";
 import { getAllProjectsContent } from "@/lib/markdown";
+import { projectsData } from "@/lib/projects-data";
 
-export default async function Home() {
+export async function Home() {
 	const projectsContent = await getAllProjectsContent();
 	return (
 		<div className="flex min-h-screen flex-col w-[100vw]" id="corpse">
@@ -226,51 +227,18 @@ export default async function Home() {
 							</div>
 						</div>
 						<div className="grid gap-8 grid-cols-1 sm:grid-cols-2 mt-20">
-							<ProjectCard
-								title="Akademia"
-								description="An all-in-one solution for all of the schools' digital needs."
-								imageSrc="/akademia.webp"
-								tags={["Svelte", "Supabase", "Rust"]}
-								link="https://akademia.cc/"
-								slug="akademia"
-								projectsContent={projectsContent}
-							/>
-							<ProjectCard
-								title="Life tracker"
-								description="Simple, clean and modern habit tracker designed to help you build and maintain good habits"
-								imageSrc="/life-tracker.png"
-								tags={["React Native", "Zustand", "Expo"]}
-								link="https://github.com/Ell1ott/habit-tracker"
-								slug="life-tracker"
-								projectsContent={projectsContent}
-							/>
-							<ProjectCard
-								title="StormGPT"
-								description="An AI-powered tool that helps you brainstorm and generate fresh, creative ideas fast."
-								imageSrc="/stormgpt.png"
-								tags={["Still in Design phase"]}
-								link="#"
-								slug="stormgpt"
-								projectsContent={projectsContent}
-							/>
-							<ProjectCard
-								title="Nørrebro Skakklub"
-								description="New website for the Nørrebro Skakklub, with focus on UI/UX and easy to use CMS"
-								imageSrc="/nbskak.jpg"
-								tags={["React"]}
-								link="#"
-								slug="norrebro-skakklub"
-								projectsContent={projectsContent}
-							/>
-							<ProjectCard
-								title="Flimmer"
-								description="Kid-friendly video platform where kids can watch curated videos and complete creative tasks related to them"
-								imageSrc="/flimmer.svg"
-								tags={[]}
-								link="#"
-								slug="flimmer"
-								projectsContent={projectsContent}
-							/>
+							{projectsData.map((project) => (
+								<ProjectCard
+									key={project.slug}
+									title={project.title}
+									description={project.description}
+									imageSrc={project.imageSrc}
+									tags={project.tags}
+									link={project.link}
+									slug={project.slug}
+									projectsContent={projectsContent}
+								/>
+							))}
 						</div>
 						{/* <Tabs defaultValue="all" className="mt-8">
               <div className="flex justify-center">

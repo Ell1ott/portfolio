@@ -75,13 +75,6 @@ export function ProjectCard({
 					))}
 				</div>
 			</div>
-
-			<ProjectModal
-				isOpen={isModalOpen}
-				onClose={handleCloseModal}
-				project={{ title, description, imageSrc, tags, link, slug }}
-				projectsContent={projectsContent}
-			/>
 		</>
 	);
 }
