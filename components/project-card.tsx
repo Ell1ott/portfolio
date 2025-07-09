@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -34,6 +35,7 @@ export function ProjectCard({
 	slug,
 	projectsContent,
 }: ProjectCardProps) {
+	const router = useRouter();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const handleOpenModal = () => {
@@ -52,7 +54,7 @@ export function ProjectCard({
 		<>
 			<div
 				className="text-start cursor-pointer group mb-2 hover:-translate-y-1 transition-transform duration-300 ease-out"
-				onClick={handleOpenModal}
+				onClick={() => router.push(`/${slug}`)}
 			>
 				<div className="relative aspect-[2] mb-4">
 					<Image
