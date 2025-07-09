@@ -42,7 +42,7 @@ export function ProjectModal({ project, projectsContent }: ProjectModalProps) {
 			document.getElementById("corpse")!.classList.remove("scale-[95%]");
 			setTimeout(() => {
 				// go back to previous page
-				router.push("/");
+				router.push("/", { scroll: false });
 			}, 500);
 		}
 	}, [isOpen]);
